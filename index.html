@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0d" />
+  <title>CLUTCH — Performance OS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">CLUTCH<span>.</span></div>
+      <div class="date" id="date"></div>
+    </header>
+
+    <section id="home" class="screen active">
+      <div class="hero">
+        <p class="eyebrow" id="greeting">GOOD EVENING</p>
+        <h1>What are you<br><em>doing now?</em></h1>
+        <p class="muted">One decision. One action. Then start.</p>
+      </div>
+
+      <div class="action-grid">
+        <button class="action-card" data-mode="study"><span>01</span><strong>STUDY</strong><small>Learn & finish</small></button>
+        <button class="action-card" data-mode="build"><span>02</span><strong>BUILD</strong><small>Create & ship</small></button>
+        <button class="action-card" data-mode="train"><span>03</span><strong>TRAIN</strong><small>Move your body</small></button>
+        <button class="action-card" data-mode="recover"><span>04</span><strong>RECOVER</strong><small>Reset your brain</small></button>
+        <button class="action-card wide" data-mode="shutdown"><span>05</span><strong>SHUT DOWN</strong><small>Close today's loop</small></button>
+      </div>
+
+      <div class="today-strip">
+        <div><b id="focusToday">0m</b><small>focused today</small></div>
+        <div><b id="tasksToday">0</b><small>tasks finished</small></div>
+        <div><b id="streak">0</b><small>day streak</small></div>
+      </div>
+    </section>
+
+    <section id="setup" class="screen">
+      <button class="back" id="backHome">← Back</button>
+      <div class="hero compact">
+        <p class="eyebrow" id="modeLabel">STUDY</p>
+        <h1>What needs to<br><em>be done?</em></h1>
+      </div>
+      <div class="form-card">
+        <label>ONE JOB</label>
+        <input id="taskInput" maxlength="100" placeholder="e.g. Finish COA Unit 3" autofocus />
+        <label>TIME</label>
+        <div class="time-options">
+          <button data-min="25">25m</button>
+          <button data-min="50">50m</button>
+          <button class="selected" data-min="90">90m</button>
+          <button data-min="120">2h</button>
+        </div>
+        <label>WHAT'S ON YOUR MIND?</label>
+        <textarea id="worryInput" rows="3" placeholder="Optional. Park anything distracting you..."></textarea>
+        <button class="primary" id="startBtn">START CLUTCH →</button>
+      </div>
+    </section>
+
+    <section id="focus" class="screen">
+      <div class="focus-top">
+        <button class="back" id="cancelFocus">← Exit</button>
+        <span class="live-dot">● LIVE</span>
+      </div>
+      <div class="focus-content">
+        <p class="eyebrow" id="focusMode">STUDY</p>
+        <h2 id="focusTask">Your task</h2>
+        <div class="timer" id="timer">90:00</div>
+        <p class="focus-note" id="parkedNote"></p>
+        <button class="primary huge" id="pauseBtn">PAUSE</button>
+        <button class="finish" id="finishBtn">I FINISHED →</button>
+      </div>
+    </section>
+
+    <section id="recovery" class="screen">
+      <button class="back" id="recoveryBack">← Back</button>
+      <div class="hero compact">
+        <p class="eyebrow">RECOVERY</p>
+        <h1>Don't force it.<br><em>Reset.</em></h1>
+      </div>
+      <div class="recovery-card">
+        <div class="recovery-timer" id="recoveryTimer">10:00</div>
+        <p class="muted">Slow breathing. No phone. Let your attention settle.</p>
+        <button class="primary" id="recoveryStart">START RECOVERY</button>
+      </div>
+    </section>
+
+    <section id="shutdown" class="screen">
+      <button class="back" id="shutdownBack">← Back</button>
+      <div class="hero compact">
+        <p class="eyebrow">SHUTDOWN</p>
+        <h1>Close today's<br><em>loop.</em></h1>
+      </div>
+      <div class="form-card">
+        <label>WHAT DID YOU FINISH?</label>
+        <textarea id="finishedInput" rows="3" placeholder="What moved forward today?"></textarea>
+        <label>WHAT REMAINS?</label>
+        <textarea id="remainInput" rows="3" placeholder="Leave it here. Tomorrow can handle it."></textarea>
+        <label>TOMORROW'S FIRST MOVE</label>
+        <input id="tomorrowInput" placeholder="The first thing you'll do" />
+        <button class="primary" id="saveShutdown">CLOSE DAY →</button>
+      </div>
+    </section>
+
+    <section id="complete" class="screen center">
+      <div class="complete-mark">✓</div>
+      <p class="eyebrow">CLUTCH COMPLETE</p>
+      <h1 id="completeTitle">Work banked.</h1>
+      <p class="muted" id="completeMeta"></p>
+      <button class="primary" id="homeBtn">BACK TO TODAY</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
